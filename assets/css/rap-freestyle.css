@@ -38,6 +38,7 @@
 .btn-primary {
     color: #fff;
     background-color: #000!important;
+    border:0px;
     }
 
 .btn-lg {

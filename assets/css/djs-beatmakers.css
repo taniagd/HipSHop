@@ -40,7 +40,7 @@
 .btn-primary {
     color: #fff;
     background-color: #000!important;
-    border-color: #000;
+    border:0px;
     }
 
 .btn-lg {
