@@ -49,6 +49,21 @@
   src: url('../fonts/Roboto-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'SedgwickAveDisplay';
+  src: url('../fonts/SedgwickAveDisplay-Regular.ttf');
+}
+
 *{
   font-family: 'Roboto';
 }
