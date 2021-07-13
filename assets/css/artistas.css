@@ -1,0 +1,14 @@
+.col-9{
+    box-sizing: border-box;
+}
+.artist-pic{
+    align-items:flex-start;
+}
+.artist-picture {
+    align-items: flex-start;
+    overflow: hidden;
+    margin: 5px auto;
+    width: 200px;
+    height: 200px;
+    border-radius:100px;
+}
