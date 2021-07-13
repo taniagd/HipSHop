@@ -5,7 +5,7 @@
 .title-header{
     color: black;
     font-size: 2rem;
-    font-family: Sedgwick Ave Display;
+    font-family: 'SedgwickAveDisplay';
 }
 .navbar-brand:hover{
     text-decoration: none!important;
@@ -24,4 +24,7 @@
 
 .nav-link:hover{
     color: grey!important;
+}
+h6{
+    font-family: 'Roboto-Thin';
 }
