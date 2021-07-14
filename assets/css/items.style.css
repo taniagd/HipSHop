@@ -1,0 +1,21 @@
+.price{
+    margin-top: 1rem;
+    overflow: hidden;
+}
+.price-left{
+    float: left;
+}
+.l-through{
+    float: right;
+    color: grey;
+    text-decoration: line-through;
+}
+.title-article{
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding-bottom: 10px;
+    color: #2b2b2b;
+}
+.title-article:hover{
+    color: #151515;
+}
