@@ -1,0 +1,21 @@
+/*dar un tamaño a la imagen principal*/
+.img1{
+    height: 750px;
+    width: 750px;
+    max-height: 450px;
+    max-width: 1000px;
+}
+/*hacer mas grande las tarjetas*/
+.card-body {
+    height: 210px !important;
+    text-align: center !important;
+}
+/*modificar la altura de las imagenes de las tarjetas*/
+.card-img-top {
+    height: 20rem !important;
+    
+}
+/* modificamos la posicion de los botones dentro de las tarjetas*/
+.btn {
+    margin-top: 46px !important;
+}
