@@ -9,7 +9,7 @@ $(document).ready(function(){
   });
 
   /*
-    Select size
+    Select size box
   */
   $(".option-box-size").click(function(){
     if($(this).attr("class") === "option-box-size selected"){
@@ -20,6 +20,18 @@ $(document).ready(function(){
       });
       $(this).attr("class", "option-box-size selected");
     }
-    
+  });
+  /*
+    Select color
+  */
+  $(".option-box-color").click(function(){
+    if($(this).attr("class") === "option-box-color selected"){
+      $(this).attr("class", "option-box-color")
+    }else{  
+      $(".option-box-color").each(function(){
+        $(this).attr("class", "option-box-color");
+      });
+      $(this).attr("class", "option-box-color selected");
+    }
   });
 });
