@@ -1,0 +1,49 @@
+/*dar un tamaño a la imagen principal*/
+.img1{
+    height: 750px;
+    width: 750px;
+    max-height: 450px;
+    max-width: 1000px;
+}
+/*hacer mas grande las tarjetas*/
+.card-body {
+    height: 210px !important;
+    text-align: center !important;
+}
+/*modificar la altura de las imagenes de las tarjetas*/
+.card-img-top {
+    height: 20rem !important;
+    
+}
+/* modificamos la posicion de los botones dentro de las tarjetas*/
+.btns {
+    margin-top: 46px !important;
+}
+/*quitar el borde de las tarjetas*/
+.cards{
+    border:none;
+}
+
+.piedepag{
+    background-color: black;
+    color: white;
+}
+.mpie{
+    margin-left: 20%;
+}
+.newslet{
+    text-align: center;
+}
+.fuentenew{
+    font-size: 50px;
+    font-family: 'SedgwickAveDisplay'
+}
+
+.fondoperfil{
+    background-color: #E8E7E7;
+}
+
+.title-header:hover{
+    text-decoration: none!important;
+    color: #000 !important;
+}
