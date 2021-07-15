@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="./assets/css/header.style.css">
   <link rel="stylesheet" href="./assets/css/container.style.css">
   <link rel="stylesheet" href="./assets/css/item.style.css">
+  <link rel="stylesheet" href="./assets/css/item.song.style.css">
   <link rel="stylesheet" href="./assets/css/sidebar.style.css">
-
+  
 </head>
 <body>
   <header class="header">
@@ -35,76 +36,15 @@
             
           </ul>
           <ul class="navbar-nav">
-            <li class="nav-item" id="loginButton"><a href="#" data-bs-toggle="modal" data-bs-target="#modalForm" class="nav-link font-weight-bold mr-3">Iniciar</a></li>
-            <li class="nav-item" id="signupButton"><a href="#" data-bs-toggle="modal"  data-bs-target="#modalSignup" class="navbar-btn btn btn-primary">Registrarse</a></li>
-            <li class="nav-item" id="nameButton"><a href="perfil.html"  class="nav-link font-weight-bold mr-3" style="font-family: 'SedgwickAveDisplay';font-size: 1.5rem;">Ernesto</a></li>
-            <li class="nav-item" id="cartIcon" ><a href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" width="50" style="cursor: pointer;margin-left:20px;" height="50" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-            </svg></a></li>
+            <li class="nav-item"><a href="#" data-toggle="modal" data-target="#login" class="nav-link font-weight-bold mr-3">Iniciar</a></li>
+            <li class="nav-item"><a href="#" class="navbar-btn btn btn-primary">Registrarse</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Modal container -->
-  <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Iniciar sesion</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="form-floating">
-            <input type="text" class="form-control" id="correoElectronico" placeholder="Correo electronico">
-            <label for="correoElectronico">Correo electronico</label>
-          </div>
-          <br>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="password" placeholder="Contraseña">
-            <label for="password">Contraseña</label>
-          </div>
-          <br>
-          <div class="modal-footer d-block">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-            <button type="button" id="login" style="float: right;" class="btn btn-success">Iniciar sesion</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="modalSignup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Registrate</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="form-floating">
-            <input type="text" class="form-control" id="correoElectronico" placeholder="Correo electronico">
-            <label for="correoElectronico">Correo electronico</label>
-          </div>
-          <br>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="password" placeholder="Contraseña">
-            <label for="password">Contraseña</label>
-          </div>
-          <br>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="password" placeholder="Repite tu contraseña">
-            <label for="password">Repite tu contraseña</label>
-          </div>
-          <br>
-          <div class="modal-footer d-block">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-            <button type="button" style="float: right;" class="btn btn-success">Registrarse</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <div class="container container-fluid-px py-6">
     <div class="row">
@@ -114,18 +54,52 @@
             <div class="row row-items">
               <div class="col-8">
                 <div class="container-title-item">
-                  <h1 class="title-item">Addidas New Hammer sole</h1>
-                  <a href="#" class="autor-link">Aczino</a>
+                  <h1 class="title-item">RENAISSANCE</h1>
+                  <a href="#" class="autor-link">DJ Sonicko</a>
                 </div>
                 <div class="img-container">
-                  <img class="main-img-item" src="./assets/img/tenis1.webp" alt="">
+                  <img class="main-img-item" src="./assets/img/renaissance-dj-sonicko.jpg" style="width: 55%;">
+                  <div class="player-container">
+                    <audio style="width: 55%;" id="audiotag" controls>
+                      <source id="sourceaudio" src="./assets/audio/bensound-beyondtheline.mp3" type="audio/mpeg">
+                    </audio>
+                  </div>
                 </div>
-                <div class="imgs-detail-container">
-                  <img class="img-detail-item" src="./assets/img/tenis1.webp" alt="">
-                  <img class="img-detail-item" src="./assets/img/tenis2.webp" alt="">
-                  <img class="img-detail-item" src="./assets/img/tenis3.webp" alt="">
-                  <img class="img-detail-item" src="./assets/img/tenis4.webp" alt="">
-                  <img class="img-detail-item" src="./assets/img/tenis5.webp" alt="">
+                <div class="songs-detail-container">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Song 1</td>
+                        <td>3:15</td>
+                        <td><img class="img-icon-play-song" data-src-audio="./assets/audio/bensound-dubstep.mp3" src="./assets/img/play.png"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Song 2</td>
+                        <td>2:10</td>
+                        <td><img class="img-icon-play-song" data-src-audio="./assets/audio/bensound-endlessmotion.mp3" src="./assets/img/play.png"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Song 3</td>
+                        <td>5:10</td>
+                        <td><img class="img-icon-play-song" data-src-audio="./assets/audio/bensound-moose.mp3" src="./assets/img/play.png"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>Song 4</td>
+                        <td>5:10</td>
+                        <td><img class="img-icon-play-song" data-src-audio="./assets/audio/bensound-house.mp3" src="./assets/img/play.png"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>Song 5</td>
+                        <td>5:10</td>
+                        <td><img class="img-icon-play-song" data-src-audio="./assets/audio/bensound-beyondtheline.mp3" src="./assets/img/play.png"></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
               <div class="col-4 ">
@@ -138,22 +112,17 @@
                       <strong class="price-shipping-item">+ $150.00 de envio</strong>
                     </div>
                   </div>
-                  <div class="size-item-container">
-                    <span class="sidebar-span" style="float: none;">Talla:</span>
+                  <div class="shipping-item-container">
+                    <span class="sidebar-span" style="float: none;">Formato:</span>
                     <div class="select-container">
-                      <span class="option-box-size">25</span>
-                      <span class="option-box-size">26</span>
-                      <span class="option-box-size">27</span>
-                      <span class="option-box-size">28</span>
-                    </div>
-                  </div>
-                  <div class="color-item-container">
-                    <span class="sidebar-span" style="float: none;">Color:</span>
-                    <div class="select-container">
-                      <span class="option-box-color" style="background-color: #ff1e1e;"></span>
-                      <span class="option-box-color" style="background-color: #1e76ff;"></span>
-                      <span class="option-box-color" style="background-color: #ff1ee6;"></span>
-                      <span class="option-box-color" style="background-color: #45ff1e;"></span>
+                      <div class="format-disc">
+                        <span class="legend-format-disc">Fisico</span>
+                        <img class="icon-format-disc" src="./assets/img/package.png">
+                      </div>
+                      <div class="format-disc">
+                        <span class="legend-format-disc">Digital</span>
+                        <img class="icon-format-disc" src="./assets/img/world-icon.png">
+                      </div>
                     </div>
                   </div>
                   <div style="text-align: center; margin-bottom: 1rem;">
@@ -257,37 +226,7 @@
     
   </div>
   <script src="./assets/js/jquery.js"></script>
-  <script src="./assets/js/item.js"></script>
-  <script>
-    const logIn = (email, pass) => {
-      if(email === "email@email.com" && pass === "pass"){
-        console.log("inside");
-        localStorage.setItem("loggedin", true)
-        window.location.reload();
-      }
-    };
-    const isLoggedIn = () => {
-      let loggedin = localStorage.getItem('loggedin');
-      if(loggedin){
-        return true;
-      }else{
-        localStorage.removeItem('loggedin');
-        return false;
-      }
-    };
-
-    let isLogged = isLoggedIn();
-    if(isLogged){
-      $("#loginButton").css({"display": "none"})
-      $("#signupButton").css({"display": "none"})
-    }else{
-      $("#nameButton").css({"display": "none"})
-      $("#cartIcon").css({"display": "none"})
-    }
-    $("#login").click(function(){
-      logIn("email@email.com", "pass")
-    });
-  </script>
+  <script src="./assets/js/item.song.js"></script>
   <script src="./assets/js/bootstrap.bundle.js"></script>
 </body>
 </html>

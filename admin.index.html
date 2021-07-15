@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/bootstrap.css">
+  <link rel="stylesheet" href="./assets/css/header.style.css">
+  <link rel="stylesheet" href="./assets/css/container.style.css">
+  <link rel="stylesheet" href="./assets/css/admin.style.css">
+  <link rel="stylesheet" href="./assets/css/sidebar.style.css">
+  
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Navbar brand--><a href="index.html" class="navbar-brand font-weight-bold">
+          <h1 class="title-header">Hip-SHop</h1></a>
+        <!-- Navbar toggler button-->
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="icon ion-md-list ml-2"></i></button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto ml-auto">
+                <!-- Link-->
+                <li class="nav-item"> <a href="#" class="nav-link">Rap & Freestyle</a></li>
+                <!-- Link-->
+                <li class="nav-item"> <a href="#" class="nav-link">Breaking</a></li>
+                <!-- Link-->
+                <li class="nav-item"> <a href="#" class="nav-link">DJs & Beatmakers</a></li>
+
+                <li class="nav-item"> <a href="#" class="nav-link">Graffiti</a></li>
+                <!-- <li class="nav-item"> <a href="#" class="nav-link">Mujeres</a></li>
+                <li class="nav-item"> <a href="#" class="nav-link">Hombres</a></li> -->
+            
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" data-toggle="modal" data-target="#login" class="nav-link font-weight-bold mr-3">Iniciar</a></li>
+            <li class="nav-item"><a href="#" class="navbar-btn btn btn-primary">Registrarse</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <div class="container container-fluid-px py-6">
+    <div class="row">
+      <!-- Grid -->
+      <div class="products-grid col-xl-9 col-lg-8 order-lg-2">
+          <section class="items">
+            <div class="row row-items">
+              <div class="col-12">
+                <div>
+                  <canvas id="line-chart" width="600" height="300"></canvas>
+                </div>
+                <h1 style="margin: 15px 0;font-size: 3rem;color: #484848;">Productos mas vendidos</h1>
+                <div class="container">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Nombre del producto</th>
+                        <th>Ventas</th>
+                        <th>Ganancias</th>
+                        <th>Diponibilidad</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Playera</td>
+                        <td>100</td>
+                        <td>$150,000.00</td>
+                        <td><div class="available" role="alert">Disponible</div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Chamarra negro </td>
+                        <td>99</td>
+                        <td>$200,000.00</td>
+                        <td><div class="unavailable" role="alert">No disponible</div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Tenis 514 </td>
+                        <td>99</td>
+                        <td>$15,000.00</td>
+                        <td><div class="available" role="alert">Disponible</div></td>
+                      </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+      </div>
+      <!-- Sidebar-->
+      <div class="sidebar col-xl-3 col-lg-4 pr-xl-5 order-lg-1">
+        <div class="sidebar-block px-3 px-lg-0">
+          <!-- Brand filter menu - this menu has .show class, so is expanded by default-->
+          <div class="admin-sidebar" style="font-size: 1.5rem;">
+              <ul class="sidebar-list">
+                <li class="sidebar-list-item"><a href="admin.index.html" class="sidebar-list-item-anchor">Dashboard</a></li>
+                <li class="sidebar-list-item"><a href="admin.sales.html" class="sidebar-list-item-anchor">Ventas</a></li>
+                <li class="sidebar-list-item"><a href="admin.orders.html" class="sidebar-list-item-anchor">Pedidos</a></li>
+                <li class="sidebar-list-item"><a href="admin.products.html" class="sidebar-list-item-anchor">Productos</a></li>
+                <li class="sidebar-list-item"><a href="admin.settings.html" class="sidebar-list-item-anchor">Ajustes</a></li>
+              </ul>
+          </div>
+
+        </div>
+        
+      </div>
+      <!-- /Sidebar end-->
+    </div>
+  </div>
+  <script src="./assets/js/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js" integrity="sha512-5vwN8yor2fFT9pgPS9p9R7AszYaNn0LkQElTXIsZFCL7ucT8zDCAqlQXDdaqgA1mZP47hdvztBMsIoFxq/FyyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+  
+    new Chart(document.getElementById("line-chart"), {
+      type: 'line',
+      data: {
+        labels: ["enero","febrero","marzo","abril","mayo","junio","julio"],
+        datasets: [{ 
+            data: [100,500,400,800,300,100,500],
+            label: "Ganancias",
+            borderColor: "#3e95cd",
+            fill: false
+          }
+        ]
+      },options: {
+    maintainAspectRatio: false,
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false, // must be false since we're going to draw our own 'gridlines'!
+          color: 'rgba(255, 0, 0, .2)', // can still set the colour.
+          lineWidth: 5 // can still set the width.
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  },
+  plugins: [{ // this is the magical bit :)
+    afterRender: function(c, options) {
+      let meta = c.getDatasetMeta(0),
+        max;
+      c.ctx.save();
+      c.ctx.strokeStyle = c.config.options.scales.xAxes[0].gridLines.color;
+      c.ctx.lineWidth = c.config.options.scales.xAxes[0].gridLines.lineWidth;
+      c.ctx.beginPath();
+      meta.data.forEach(function(e) {
+        if (max == undefined || c.config.data.datasets[0].data[e._index] > max) {
+          max = c.config.data.datasets[0].data[e._index];
+        }
+        c.ctx.moveTo(e._model.x, meta.dataset._scale.bottom);
+        c.ctx.lineTo(e._model.x, e._model.y);
+      });
+      c.ctx.textBaseline = 'top';
+      c.ctx.textAlign = 'right';
+      c.ctx.fillStyle = 'black';
+      c.ctx.fillText('Max value: ' + max, c.width - 10, 10);
+      c.ctx.stroke();
+      c.ctx.restore();
+    }
+  }]
+    });
+    
+
+  </script>
+  <script src="./assets/js/bootstrap.bundle.js"></script>
+</body>
+</html>
