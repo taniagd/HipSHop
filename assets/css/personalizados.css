@@ -15,7 +15,7 @@
 .cardIzq{
     width: 50%!important;
 }
-.card{
+.cards{
     border: none;
     padding-left: 10px;
     padding-right: 10px;
@@ -28,4 +28,21 @@
 }
 .cartas3{
     margin-left: 0;
+}
+.piedepag{
+    background-color: black;
+    color: white;
+}
+.mpie{
+    margin-left: 20%;
+}
+.newslet{
+    text-align: center;
+}
+.fuentenew{
+    font-size: 50px;
+    font-family: 'SedgwickAveDisplay'
+}
+.fondoperfil{
+    background-color: #E8E7E7;
 }
