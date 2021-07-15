@@ -1,0 +1,48 @@
+.tamaño-slider{
+    width: 100%;
+    height: 45rem;
+}
+.contenido{
+    width: 90%;
+}
+.card-group {
+    width: 100%;
+
+}
+.cartas{
+    margin: 0 auto;
+}
+.cardIzq{
+    width: 50%!important;
+}
+.cards{
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.cardDer{
+    padding-top: 50px;
+}
+.cartas2{
+    margin-right: 0;
+}
+.cartas3{
+    margin-left: 0;
+}
+.piedepag{
+    background-color: black;
+    color: white;
+}
+.mpie{
+    margin-left: 20%;
+}
+.newslet{
+    text-align: center;
+}
+.fuentenew{
+    font-size: 50px;
+    font-family: 'SedgwickAveDisplay'
+}
+.fondoperfil{
+    background-color: #E8E7E7;
+}
