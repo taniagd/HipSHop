@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/bootstrap.css">
+  <link rel="stylesheet" href="./assets/css/header.style.css">
+  <link rel="stylesheet" href="./assets/css/container.style.css">
+  <link rel="stylesheet" href="./assets/css/admin.style.css">
+  <link rel="stylesheet" href="./assets/css/sidebar.style.css">
+  
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Navbar brand--><a href="index.html" class="navbar-brand font-weight-bold">
+          <h1 class="title-header">Hip-SHop</h1></a>
+        <!-- Navbar toggler button-->
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="icon ion-md-list ml-2"></i></button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto ml-auto">
+                <!-- Link-->
+                <li class="nav-item"> <a href="#" class="nav-link">Rap & Freestyle</a></li>
+                <!-- Link-->
+                <li class="nav-item"> <a href="#" class="nav-link">Breaking</a></li>
+                <!-- Link-->
+                <li class="nav-item"> <a href="#" class="nav-link">DJs & Beatmakers</a></li>
+
+                <li class="nav-item"> <a href="#" class="nav-link">Graffiti</a></li>
+                <!-- <li class="nav-item"> <a href="#" class="nav-link">Mujeres</a></li>
+                <li class="nav-item"> <a href="#" class="nav-link">Hombres</a></li> -->
+            
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" data-toggle="modal" data-target="#login" class="nav-link font-weight-bold mr-3">Iniciar</a></li>
+            <li class="nav-item"><a href="#" class="navbar-btn btn btn-primary">Registrarse</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Modal container -->
+  <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Orden #530</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Nombre del usuario: </h5>
+          <p>
+            Francisco Gonzales
+          </p>
+          <h5>Direccion de envio: </h5>
+          <p>
+            Calle Miguel Hidalgo #32, colonia Independencia, C.P. 06089 Ocotlan, Tlaxcala, Mexico.
+          </p>
+          <h5>Productos: </h5>
+          <ul class="list-items-order">
+            <li>
+              <a href="#" target="_blank">Playera Azcino - Mediano - Negro</a>
+              <img src="./assets/img/azcino-shirt.jpg" alt="">
+            </li>
+            <li>
+              <a href="#" target="_blank">Tenis Nike - 28 - Blanco</a>
+              <img src="./assets/img/tenis1.webp" alt="">
+            </li>
+            <li>
+              <a href="#" target="_blank">Hoodie - Mediano - Azul</a>
+              <img src="./assets/img/hoodie.png" alt="">
+            </li>
+          </ul>
+          <hr>
+          <h5 style="display: inline-block;">Costo:</h5>              
+          <span>$1,610.00</span> + <span>$120.00</span> de envio.
+          <br>
+          <h5 style="display: inline-block;">Total: </h5><span style="color: rgb(183, 0, 0);font-size: 1.5rem;"> $1,730.00</span>
+          <div class="modal-footer d-block">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-fluid-px py-6">
+    <div class="row">
+      <!-- Grid -->
+      <div class="products-grid col-xl-9 col-lg-8 order-lg-2">
+          <section class="items">
+            <div class="row row-items">
+              <div class="col-12">
+                <h1 style="margin: 15px 0;font-size: 2rem;color: #484848;">Ventas</h1>
+                
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Orden:</th>
+                        <th>Enviar a:</th>
+                        <th>Total:</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#modalForm">Orden #530</a> por Santiago</td>
+
+                        <td>Francisco Gonzales, calle Miguel Hidalgo #32, colonia Independencia, C.P. 06089 Ocotlan, Tlaxcala, Mexico.</td>
+                        <td>$1,610.00</td>
+
+                      </tr>
+
+                      
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+          </section>
+      </div>
+      <!-- Sidebar-->
+      <div class="sidebar col-xl-3 col-lg-4 pr-xl-5 order-lg-1">
+        <div class="sidebar-block px-3 px-lg-0">
+          <!-- Brand filter menu - this menu has .show class, so is expanded by default-->
+          <div class="admin-sidebar" style="font-size: 1.5rem;">
+              <ul class="sidebar-list">
+                <li class="sidebar-list-item"><a href="admin.index.html" class="sidebar-list-item-anchor">Dashboard</a></li>
+                <li class="sidebar-list-item"><a href="admin.sales.html" class="sidebar-list-item-anchor">Ventas</a></li>
+                <li class="sidebar-list-item"><a href="admin.orders.html" class="sidebar-list-item-anchor">Pedidos</a></li>
+                <li class="sidebar-list-item"><a href="admin.products.html" class="sidebar-list-item-anchor">Productos</a></li>
+                <li class="sidebar-list-item"><a href="admin.settings.html" class="sidebar-list-item-anchor">Ajustes</a></li>
+              </ul>
+          </div>
+
+        </div>
+        
+      </div>
+      <!-- /Sidebar end-->
+    </div>
+  </div>
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/bootstrap.bundle.js"></script>
+</body>
+</html>
