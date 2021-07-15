@@ -16,6 +16,34 @@
     
 }
 /* modificamos la posicion de los botones dentro de las tarjetas*/
-.btn {
+.btns {
     margin-top: 46px !important;
+}
+/*quitar el borde de las tarjetas*/
+.cards{
+    border:none;
+}
+
+.piedepag{
+    background-color: black;
+    color: white;
+}
+.mpie{
+    margin-left: 20%;
+}
+.newslet{
+    text-align: center;
+}
+.fuentenew{
+    font-size: 50px;
+    font-family: 'SedgwickAveDisplay'
+}
+
+.fondoperfil{
+    background-color: #E8E7E7;
+}
+
+.title-header:hover{
+    text-decoration: none!important;
+    color: #000 !important;
 }
