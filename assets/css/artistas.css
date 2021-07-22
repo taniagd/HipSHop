@@ -1,0 +1,24 @@
+.col{
+    box-sizing: border-box;
+    margin: 0.7em;
+    align-items: center;
+    
+}
+.foto-artista{
+align-self: center;
+padding:0.2em;
+align-content: center;
+text-align: center;
+
+}
+.img-fluid{
+    max-width: 225px;
+    height: 225px;
+    border-radius: 112px;
+    align-items: center;
+    margin: 0.5em;
+    display: inline-flex;
+}
+.nombre-artista{
+    text-align: center;
+}
