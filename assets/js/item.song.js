@@ -34,5 +34,22 @@ $(document).ready(function(){
       $("#audiotag")[0].play();
       $(this).attr("src", "./assets/img/pause.png")
     }
-  })
+  });
+  /*
+    Favorite icon
+  */
+    $(".favorite-icon").click(function(){
+      if($(this).attr("fill") === "#000"){
+        $(this).attr("fill", "red");
+        $(this).children(".favorite-icon-outline").css({"display":"none"});
+        
+        $(this).children(".favorite-icon-filled").css({"display":"block"});
+      }else{  
+        $(this).attr("fill", "#000");
+        
+        $(this).children(".favorite-icon-outline").css({"display":"block"});
+        
+        $(this).children(".favorite-icon-filled").css({"display":"none"});
+      }
+    });
 });
