@@ -96,3 +96,9 @@
     border: 7px solid white;
     box-shadow: 0px 0px 11px -2px black;
 }
+.favorite-icon{
+    cursor: pointer;
+}
+.favorite-icon-filled{
+    display: none;
+}
