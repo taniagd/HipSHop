@@ -1,8 +1,6 @@
 CREATE DATABASE hip_shop;
 USE hip_shop;
 
-CREATE TYPE hiphopbranch AS ENUM ('rap&freestyle','breaking', 'djs&beatmakers', 'graffiti' );
-CREATE TYPE gender AS ENUM ('Hombre','Mujer','Unisex');
 CREATE TABLE user(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100),
@@ -25,10 +23,10 @@ CREATE TABLE vendor(
     bank_account VARCHAR(40) NOT NULL,
     bank_name VARCHAR(40) NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
-    hip_hop_branch hiphopbranch
+    hip_hop_branch ENUM ('rap&freestyle','breaking', 'djs&beatmakers', 'graffiti' )
 );
 
-CREATE TABLE order(
+CREATE TABLE purchase_order(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     total DECIMAL,
@@ -37,15 +35,7 @@ CREATE TABLE order(
     package_status VARCHAR(20)
 );
 
-CREATE TABLE order_item(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    order_id INT NOT NULL,
-    product_id INT NOT NULL,
-    price DECIMAL,
-    quantity INT,
-    FOREIGN KEY (order_id) REFERENCES order(id),
-    FOREIGN KEY (product_id) REFERENCES product(id)
-);
+
 
 CREATE TABLE album(
     id INT NOT NULL AUTO_INCREMENT,
@@ -73,7 +63,7 @@ CREATE TABLE card(
     card_number INT NOT NULL,
     expiration_date VARCHAR(5) NOT NULL,
     cvv INT NOT NULL,
-    CONSTRAINT pk_card PRIMARY KEY (id)
+    CONSTRAINT pk_card PRIMARY KEY (id),
     CONSTRAINT fk_card_user FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
@@ -90,7 +80,7 @@ CREATE TABLE clothing(
     color VARCHAR(50) NOT NULL,
     size VARCHAR(20) NOT NULL,
     quantity INT NOT NULL,
-    gender gender NOT NULL,
+    gender ENUM ('Hombre','Mujer','Unisex'),
     price DECIMAL NOT NULL,
     weight DECIMAL NOT NULL,
     CONSTRAINT pk_clothing_id PRIMARY KEY(id),
@@ -112,8 +102,8 @@ CREATE TABLE product(
     clothing_id INT,
     service_id INT,
     CONSTRAINT pk_product PRIMARY KEY (id),
-    CONSTRAINT fk_album_id FOREIGN KEY (album_id) REFERENCES album(id)
-    CONSTRAINT fk_clothing_id FOREIGN KEY (clothing_id) REFERENCES clothing(id)
+    CONSTRAINT fk_album_id FOREIGN KEY (album_id) REFERENCES album(id),
+    CONSTRAINT fk_clothing_id FOREIGN KEY (clothing_id) REFERENCES clothing(id),
     CONSTRAINT fk_service_id FOREIGN KEY (service_id) REFERENCES service(id)
 );
 
@@ -121,8 +111,8 @@ CREATE TABLE favorites(
     id INT NOT NULL AUTO_INCREMENT,
     product_id INT NOT NULL,
     user_id INT NOT NULL,
-    CONSTRAINT pk_favorites PRIMARY KEY (id)
-    CONSTRAINT fk_favorites_userid FOREIGN KEY (user_id) REFERENCES user(id)
+    CONSTRAINT pk_favorites PRIMARY KEY (id),
+    CONSTRAINT fk_favorites_userid FOREIGN KEY (user_id) REFERENCES user(id),
     CONSTRAINT fk_favorites_productid FOREIGN KEY (product_id) REFERENCES product(id)
 );
 
@@ -130,6 +120,15 @@ CREATE TABLE clothing_img(
     id INT NOT NULL,
     product_name VARCHAR(50) NOT NULL,
     clothing_id INT NOT NULL,
-    CONSTRAINT pk_clothingimg PRIMARY KEY (id) 
+    CONSTRAINT pk_clothingimg PRIMARY KEY (id) ,
     CONSTRAINT fk_clothing_img FOREIGN KEY (clothing_id) REFERENCES clothing(id)
+);
+CREATE TABLE order_item(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    price DECIMAL,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES purchase_order(id),
+    FOREIGN KEY (product_id) REFERENCES product(id)
 );
