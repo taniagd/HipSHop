@@ -80,7 +80,8 @@ margin-left: 240px
 }
 
 .flecha-derecha{
-    right:0
+    right: 0;
+    /* margin-right: 135px; */
 }
 
 .flecha-izquierda:hover, 
