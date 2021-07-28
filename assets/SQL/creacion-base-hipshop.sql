@@ -43,3 +43,43 @@ CREATE TABLE order_item{
     FOREIGN KEY (order_id) REFERENCES order(id),
     FOREIGN KEY (product_id) REFERENCES product(id)
 }
+
+CREATE TABLE hip_shop.song(
+    id INT NOT NULL AUTO_INCREMENT,
+    album_id INT NOT NULL,
+    song_number INT NOT NULL,
+    song_name VARCHAR (50) NOT NULL,
+    duration VARCHAR(10) NOT NULL, 
+    path VARCHAR(100),
+    CONSTRAINT pk_song PRIMARY KEY(id),
+    CONSTRAINT fk_song_album FOREIGN KEY (album_id) REFERENCES album(id)
+);
+
+CREATE TABLE hip_shop.album(
+    id INT NOT NULL AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    product_name VARCHAR (50) NOT NULL,
+    price INT NOT NULL,
+    poster VARCHAR(100) NOT NULL, 
+    CONSTRAINT pk_album PRIMARY KEY(id) 
+);
+
+CREATE TABLE hip_shop.card(
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    holder VARCHAR(50),
+    card_number INT NOT NULL,
+    expiration_date DATE NOT NULL,
+    cvv INT NOT NULL,
+    CONSTRAINT pk_card PRIMARY KEY (id)
+    CONSTRAINT fk_card_user FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+CREATE TABLE hip_shop.favorites(
+    id INT NOT NULL AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    user_id INT NOT NULL,
+    CONSTRAINT pk_favorites PRIMARY KEY (id)
+    CONSTRAINT fk_favorites_userid FOREIGN KEY (user_id) REFERENCES user(id)
+    CONSTRAINT fk_favorites_productid FOREIGN KEY (product_id) REFERENCES product(id)
+);
