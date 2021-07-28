@@ -1,0 +1,136 @@
+
+.div-contenedor{
+    display:flex;
+    margin-top: 20px;
+
+}
+
+.contenedor{
+    max-width: 800px;
+    margin:auto;
+    /* display: flex; */
+}
+
+
+/* Contenedor de titulo y cointroles  */
+.contenedor-titulo-controles{
+    display:flex;
+    justify-content:space-between;
+    align-items: end;
+
+}
+
+.contenedor-titulo-controles h2{
+margin-left: 240px 
+}
+
+.contenedor-titulo-controles .indicadores button{
+    
+    height: 3px;
+    width: 10px;
+    cursor: pointer;
+    /* border: none; */
+    margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo{
+    background: red;
+
+}
+
+
+/* Contenedor principal y flechas  */
+.slider{
+
+    margin-bottom: 40px;
+}
+
+.contenedor-principal{
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+
+.flecha-izquierda, 
+.flecha-derecha{
+    position: absolute;
+    border:none;
+    font-size: 40px;
+    height: 30%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    color:rgb(228, 19, 19);
+    width: 50px;
+    cursor: pointer;
+    z-index: 500;
+    transition: .2s ease all;
+}
+
+.flecha-izquierda{
+    left:0
+}
+
+.flecha-derecha{
+    right:0
+}
+
+.flecha-izquierda:hover, 
+.flecha-derecha:hover{
+
+    background: rgba(0, 0, 0, 0.9);
+
+}
+
+.contenedor-carrusel{
+    width:100%;
+    padding: 20px 0;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth; 
+
+}
+
+.carrusel{
+    display: flex;
+}
+
+.artista{
+    min-width: 34%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+
+}
+
+.artista img{
+    width: 100%;
+    vertical-align: top;
+}
+
+.artista.hover{
+    transform: scale(1.2);
+    transform-origin: center; ;
+}
+
+
+/* Media query */
+@media screen and (max-width: 800px) {
+
+    .contenedor-carrusel{
+        overflow: visible;
+    }
+
+    .carrusel{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .indicadores,
+    .flecha-izquierda,
+    .flecha-derecha{
+        display:none;
+    }
+
+}
