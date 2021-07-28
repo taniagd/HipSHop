@@ -83,3 +83,26 @@ CREATE TABLE hip_shop.favorites(
     CONSTRAINT fk_favorites_userid FOREIGN KEY (user_id) REFERENCES user(id)
     CONSTRAINT fk_favorites_productid FOREIGN KEY (product_id) REFERENCES product(id)
 );
+
+CREATE TABLE sku {
+    id INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR (50) INT NOT NULL,
+   CONSTRAINT pk_sku PRIMARY KEY (id)
+    
+}
+
+CREATE TABLE clothing {
+    id INT NOT NULL AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    product_name VARCHAR(50) INT NOT NULL,
+    sku_id INT NOT NULL,
+    color INT NOT NULL,
+    size INT NOT NULL,
+    quantly INT NOT NULL,
+    gender VARCHAR (50) INT NOT NULL,
+    price INT NOT NULL,
+    suscription INT NOT NULL,
+    weight INT NOT NULL,
+    CONSTRAINT pk_clothing PRIMARY KEY(id),
+    CONSTRAINT fk_assssjfregn FOREIGN KEY(sku_id) REFERENCES sku(id)
+}
