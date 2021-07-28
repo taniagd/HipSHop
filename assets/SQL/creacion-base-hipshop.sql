@@ -44,7 +44,7 @@ CREATE TABLE order_item{
     FOREIGN KEY (product_id) REFERENCES product(id)
 }
 
-CREATE TABLE hip_shop.song(
+CREATE TABLE song(
     id INT NOT NULL AUTO_INCREMENT,
     album_id INT NOT NULL,
     song_number INT NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE hip_shop.album(
     product_id INT NOT NULL,
     product_name VARCHAR (50) NOT NULL,
     price INT NOT NULL,
-    poster VARCHAR(100) NOT NULL, 
+    img VARCHAR(100) NOT NULL, 
     CONSTRAINT pk_album PRIMARY KEY(id) 
 );
 
