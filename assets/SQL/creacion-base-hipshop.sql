@@ -32,7 +32,8 @@ CREATE TABLE purchase_order(
     total DECIMAL,
     address VARCHAR(250),
     guide_number VARCHAR(70),
-    package_status VARCHAR(20)
+    package_status VARCHAR(20),
+    CONSTRAINT fk_user_pusrchase FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 
@@ -101,7 +102,9 @@ CREATE TABLE product(
     album_id INT,
     clothing_id INT,
     service_id INT,
+    vendor_id INT NOT NULL,
     CONSTRAINT pk_product PRIMARY KEY (id),
+    CONSTRAINT fk_vendor_products FOREIGN KEY (vendor_id) REFERENCES product(id),
     CONSTRAINT fk_album_id FOREIGN KEY (album_id) REFERENCES album(id),
     CONSTRAINT fk_clothing_id FOREIGN KEY (clothing_id) REFERENCES clothing(id),
     CONSTRAINT fk_service_id FOREIGN KEY (service_id) REFERENCES service(id)
@@ -131,4 +134,13 @@ CREATE TABLE order_item(
     quantity INT,
     FOREIGN KEY (order_id) REFERENCES purchase_order(id),
     FOREIGN KEY (product_id) REFERENCES product(id)
+);
+
+CREATE TABLE following(
+    id INT NOT NULL AUTO_INCREMENT,
+    vendor_id INT NOT NULL,
+    user_id INT NOT NULL,
+    CONSTRAINT pk_following PRIMARY KEY (id),
+    CONSTRAINT fk_vendor_following FOREIGN KEY (vendor_id) REFERENCES vendor(id),
+    CONSTRAINT fk_user_following FOREIGN KEY (user_id) REFERENCES user(id)
 );
