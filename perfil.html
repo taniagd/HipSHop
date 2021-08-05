@@ -39,14 +39,75 @@
 
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a href="#" data-toggle="modal" data-target="#login"
-                                class="nav-link font-weight-bold mr-3">Iniciar</a></li>
-                        <li class="nav-item"><a href="#" class="navbar-btn btn btn-primary">Registrarse</a></li>
-                    </ul>
+                        <li class="nav-item" id="loginButton"><a href="#" data-bs-toggle="modal" data-bs-target="#modalForm" class="nav-link font-weight-bold mr-3">Iniciar</a></li>
+                        <li class="nav-item" id="signupButton"><a href="#" data-bs-toggle="modal"  data-bs-target="#modalSignup" class="navbar-btn btn btn-primary">Registrarse</a></li>
+                        <li class="nav-item" id="nameButton"><a href="perfil.html"  class="nav-link font-weight-bold mr-3" style="font-family: 'SedgwickAveDisplay';font-size: 1.5rem;">Ernesto</a></li>
+                        <li class="nav-item" id="cartIcon" ><a href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" width="50" style="cursor: pointer;margin-left:20px;" height="50" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg></a></li>
+                      </ul>
                 </div>
             </div>
         </nav>
     </header>
+     <!-- Modal container Login-->
+   <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="correoElectronico" placeholder="Correo electronico">
+            <label for="correoElectronico">Correo electrónico</label>
+          </div>
+          <br>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+            <label for="password">Contraseña</label>
+          </div>
+          <br>
+          <div class="modal-footer d-block">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+            <button type="button" id="login" style="float: right;" class="btn btn-success">Iniciar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalSignup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Regístrate</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="correoElectronico" placeholder="Correo electronico">
+            <label for="correoElectronico">Correo electrónico</label>
+          </div>
+          <br>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+            <label for="password">Contraseña</label>
+          </div>
+          <br>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Repite tu contraseña">
+            <label for="password">Repite tu contraseña</label>
+          </div>
+          <br>
+          <div class="modal-footer d-block">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+            <button type="button" style="float: right;" class="btn btn-success">Registrarse</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="container">
         <div class="row align-items-start">
             <div class="col">
@@ -241,6 +302,37 @@
 
     <script src="assets/js/jquery.js"></script>
     <script src="./assets/js/bootstrap.bundle.js"></script>
+    
+    <script>
+      const logIn = (email, pass) => {
+        if(email === "email@email.com" && pass === "pass"){
+          console.log("inside");
+          localStorage.setItem("loggedin", true)
+          window.location.reload();
+        }
+      };
+      const isLoggedIn = () => {
+        let loggedin = localStorage.getItem('loggedin');
+        if(loggedin){
+          return true;
+        }else{
+          localStorage.removeItem('loggedin');
+          return false;
+        }
+      };
+  
+      let isLogged = isLoggedIn();
+      if(isLogged){
+        $("#loginButton").css({"display": "none"})
+        $("#signupButton").css({"display": "none"})
+      }else{
+        $("#nameButton").css({"display": "none"})
+        $("#cartIcon").css({"display": "none"})
+      }
+      $("#login").click(function(){
+        logIn("email@email.com", "pass")
+      });
+    </script>
 </body>
 
 </html>
