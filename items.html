@@ -115,7 +115,7 @@
       <!-- Grid -->
       <div class="products-grid col-xl-9 col-lg-8 order-lg-2">
           <section class="items">
-            <div class="row row-items">
+            <div class="row row-items" id="container-items">
               <div class="col-lg-4 col-md-6">
                 <div class="single-product">
                   <a href="item.html" class="title-article">
@@ -252,7 +252,7 @@
     <img src="./assets/images/fotter1.jpg" alt="" style="width: 99%;">
     
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="./assets/js/jquery.js"></script>
   <script src="./assets/js/bootstrap.bundle.js"></script>
     <script>
       const logIn = (email, pass) => {
@@ -283,6 +283,38 @@
       $("#login").click(function(){
         logIn("email@email.com", "pass")
       });
+
+      
+
+    var request = $.ajax({
+      url: "http://localhost:8080/product",
+      method: "GET"
+    });
+    
+    request.done(function( data ) {
+      console.log(data);
+      for (let index = 0; index < data.length; index++) {
+        $("#container-items").append(
+          '<div class="col-lg-4 col-md-6">'+
+            '<div class="single-product">'+
+              '<a href="item.html" class="title-article">'+
+                '<img class="img-fluid" src="./assets/img/playera-MastaQuba1.jpg">'+
+              '</a>'+
+              '<div class="product-details">'+
+                  '<a href="item.html" class="title-article">'+data[index]["product"]["productName"]+'</a>'+
+                '<div class="price">'+
+                  '<h6 class="price-left" style="color: #ce0000;">$'+data[index]["product"]["price"]+'</h6>'+
+                '</div>'+
+              '</div>'+
+            '</div>'+
+          '</div>'
+        );
+      }      
+    });
+    
+    request.fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
     </script>
 </body>
 </html>
