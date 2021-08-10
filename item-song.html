@@ -57,8 +57,8 @@
         </div>
         <div class="modal-body">
           <div class="form-floating">
-            <input type="text" class="form-control" id="correoElectronico" placeholder="Correo electronico">
-            <label for="correoElectronico">Correo electrónico</label>
+            <input type="text" class="form-control" id="aka" placeholder="Correo electronico">
+            <label for="aka">A.K.A.</label>
           </div>
           <br>
           <div class="form-floating">
@@ -84,7 +84,7 @@
         <div class="modal-body">
           <div class="form-floating">
             <input type="text" class="form-control" id="usernameRegister" placeholder="Correo electronico">
-            <label for="correoElectronico">AKA</label>
+            <label for="correoElectronico">A.K.A.</label>
           </div>
           <br>
           <div class="form-floating">
@@ -296,35 +296,6 @@
   <script src="./assets/js/item.song.js"></script>
   <script src="./assets/js/bootstrap.bundle.js"></script>
   <script src="./assets/js/register.js"></script>
-    <script>
-      const logIn = (email, pass) => {
-        if(email === "email@email.com" && pass === "pass"){
-          console.log("inside");
-          localStorage.setItem("loggedin", true)
-          window.location.reload();
-        }
-      };
-      const isLoggedIn = () => {
-        let loggedin = localStorage.getItem('loggedin');
-        if(loggedin){
-          return true;
-        }else{
-          localStorage.removeItem('loggedin');
-          return false;
-        }
-      };
-  
-      let isLogged = isLoggedIn();
-      if(isLogged){
-        $("#loginButton").css({"display": "none"})
-        $("#signupButton").css({"display": "none"})
-      }else{
-        $("#nameButton").css({"display": "none"})
-        $("#cartIcon").css({"display": "none"})
-      }
-      $("#login").click(function(){
-        logIn("email@email.com", "pass")
-      });
-    </script>
+    
 </body>
 </html>
