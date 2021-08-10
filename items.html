@@ -171,17 +171,6 @@
                 <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">Hoodies</a></li>
                 <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">Playeras</a></li>
                 <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">Tenis</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">Arte</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">Stickers</a></li>
-              </ul>
-          </div>
-          <hr class="custom-hr"/>
-          <div class="category-sidebar">
-            <h5 class="title-sidebar">Servicios</h5>
-              <ul class="sidebar-list">
-                <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">Beats</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">Talleres</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-list-item-anchor">DJs</a></li>
               </ul>
           </div>
           <hr class="custom-hr"/>
@@ -254,6 +243,7 @@
   </div>
   <script src="./assets/js/jquery.js"></script>
   <script src="./assets/js/bootstrap.bundle.js"></script>
+  <script src="./assets/js/itemsQueries.js"></script>
     <script>
       const logIn = (email, pass) => {
         if(email === "email@email.com" && pass === "pass"){
@@ -284,37 +274,6 @@
         logIn("email@email.com", "pass")
       });
 
-      
-
-    var request = $.ajax({
-      url: "http://localhost:8080/product",
-      method: "GET"
-    });
-    
-    request.done(function( data ) {
-      console.log(data);
-      for (let index = 0; index < data.length; index++) {
-        $("#container-items").append(
-          '<div class="col-lg-4 col-md-6">'+
-            '<div class="single-product">'+
-              '<a href="item.html" class="title-article">'+
-                '<img class="img-fluid" src="./assets/img/playera-MastaQuba1.jpg">'+
-              '</a>'+
-              '<div class="product-details">'+
-                  '<a href="item.html" class="title-article">'+data[index]["product"]["productName"]+'</a>'+
-                '<div class="price">'+
-                  '<h6 class="price-left" style="color: #ce0000;">$'+data[index]["product"]["price"]+'</h6>'+
-                '</div>'+
-              '</div>'+
-            '</div>'+
-          '</div>'
-        );
-      }      
-    });
-    
-    request.fail(function( jqXHR, textStatus ) {
-      alert( "Request failed: " + textStatus );
-    });
     </script>
 </body>
 </html>
