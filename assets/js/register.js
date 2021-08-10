@@ -31,10 +31,26 @@ $(document).ready(function(){
     }
     
   });
-  const formLogin = document.querySelector('#login');
-  formLogin.addEventListener('submit', (e) =>{
+  const isLoggedIn = () => {
+    let loggedin = localStorage.getItem('token');
+    if(loggedin){
+      return true;
+    }else{
+      localStorage.removeItem('token');
+      return false;
+    }
+  };
+
+  let isLogged = isLoggedIn();
+    if(isLogged){
+      $("#loginButton").css({"display": "none"})
+      $("#signupButton").css({"display": "none"})
+    }else{
+      $("#nameButton").css({"display": "none"})
+      $("#cartIcon").css({"display": "none"})
+  }
+  $("#login").click(function(){
   
-      e.preventDefault(e);
       const email = document.querySelector('#aka');
       const password = document.querySelector('#password');
   
@@ -61,15 +77,8 @@ $(document).ready(function(){
                   //Almacena en el local storage
                   localStorage.setItem('token',token);
                   //obteniendo urlen donde estamos situados
-                  url = window.location;
-                  console.log(url);//imprime la localizacion en la que estamos ubicados
-  
-                  //Construyendo nuestro path, es decir la ruta en donde estamos
-                  const path = url.pathname.substring(0,url.pathname.lastIndexOf('/') + 1)
-                  //El substring hace un recorte del texto, va del inicio hasta el ultimo "/"
-  
-                  //Lo redireccionamos a la ottra pagina
-                  location.href = path + 'success.html';
+                  window.location.reload();
+                
               }else{
                   localStorage.removeItem('token');
                   swal("No se ha podido iniciar sesión", "El campo A.K.A. o el campo password son incorrectos", "error");
