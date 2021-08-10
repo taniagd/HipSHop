@@ -21,7 +21,7 @@ $(document).ready(function(){
         $("#container-items").append(
           '<div class="col-lg-4 col-md-6">'+
             '<div class="single-product">'+
-              '<a href="'+html+'" class="title-article">'+
+              '<a href="'+html+'?idproduct='+ data[index]["id"]+'&idTypeProduct='+data[index]["product"]["id"]+'" class="title-article">'+
                 '<img class="img-fluid" src=" '+ data[index]["product"]["image"] +'>'+
               '</a>'+
               '<div class="product-details">'+
