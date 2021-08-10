@@ -219,7 +219,6 @@
       <div class="card-body">
         <h5 class="card-title">Gera MX</h5>
         <p class="card-text">Gera Mx es un rapero y compositor mexicano. Conoce más de él y sus productos.</p>
-        <p class="card-text"><small class="text-muted">Actualizado hace 5 minutos</small></p>
       </div>
     </div>
     <div class="card cartas3">
@@ -227,7 +226,6 @@
       <div class="card-body">
         <h5 class="card-title">Atenea</h5>
         <p class="card-text">Atenea es una de las más importantes DJs de habla hispana. Conoce más de ella y sus productos.</p>
-        <p class="card-text"><small class="text-muted">Actualizado hace 15 minutos</small></p>
       </div>
     </div>
   </div>
@@ -301,7 +299,7 @@
         <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
         <button class="btn btn-outline-light" type="button" style="width: 92px;">Hombre</button>
         <button class="btn btn-outline-light" type="button" style="width: 92px;"> Mujer</button>
-        <button class="btn btn-outline-light" type="button">Suscribete</button>
+        <button class="btn btn-outline-light" type="button">Suscríbete</button>
       </div>
       <br>
       <br>
@@ -311,37 +309,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-    <script src="./assets/js/jquery.js"></script>
-    <script>
-      const logIn = (email, pass) => {
-        if(email === "email@email.com" && pass === "pass"){
-          console.log("inside");
-          localStorage.setItem("loggedin", true)
-          window.location.reload();
-        }
-      };
-      const isLoggedIn = () => {
-        let loggedin = localStorage.getItem('loggedin');
-        if(loggedin){
-          return true;
-        }else{
-          localStorage.removeItem('loggedin');
-          return false;
-        }
-      };
-  
-      let isLogged = isLoggedIn();
-      if(isLogged){
-        $("#loginButton").css({"display": "none"})
-        $("#signupButton").css({"display": "none"})
-      }else{
-        $("#nameButton").css({"display": "none"})
-        $("#cartIcon").css({"display": "none"})
-      }
-      $("#login").click(function(){
-        logIn("email@email.com", "pass")
-      });
-    </script>
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/bootstrap.bundle.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./assets/js/register.js"></script>
 </body>
 
 </html>
