@@ -77,7 +77,27 @@ $(document).ready(function(){
           })
       }
   });
-  
+  const isLoggedIn = () => {
+    let loggedin = localStorage.getItem('token');
+    if(loggedin){
+      return true;
+    }else{
+      localStorage.removeItem('token');
+      return false;
+    }
+  };
+
+  let isLogged = isLoggedIn();
+  if(isLogged){
+    $("#loginButton").css({"display": "none"})
+    $("#signupButton").css({"display": "none"})
+  }else{
+    $("#nameButton").css({"display": "none"})
+    $("#cartIcon").css({"display": "none"})
+  }
+  $("#login").click(function(){
+    logIn("email@email.com", "pass")
+  });
   /*.then((resp) => resp.text()).then(token => {
       if(token.includes('Bearer')){
           //console.log(token);
