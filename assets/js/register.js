@@ -31,24 +31,8 @@ $(document).ready(function(){
     }
     
   });
-  const isLoggedIn = () => {
-    let loggedin = localStorage.getItem('token');
-    if(loggedin){
-      return true;
-    }else{
-      localStorage.removeItem('token');
-      return false;
-    }
-  };
 
-  let isLogged = isLoggedIn();
-    if(isLogged){
-      $("#loginButton").css({"display": "none"})
-      $("#signupButton").css({"display": "none"})
-    }else{
-      $("#nameButton").css({"display": "none"})
-      $("#cartIcon").css({"display": "none"})
-  }
+
   $("#login").click(function(){
   
       const email = document.querySelector('#aka');
@@ -104,21 +88,4 @@ $(document).ready(function(){
     $("#nameButton").css({"display": "none"})
     $("#cartIcon").css({"display": "none"})
   }
-  $("#login").click(function(){
-    logIn("email@email.com", "pass")
-  });
-  /*.then((resp) => resp.text()).then(token => {
-      if(token.includes('Bearer')){
-          //console.log(token);
-          localStorage.setItem('token',token);
-          url = window.location;
-          console.log(url);
-          const path = url.pathname.substring(0,url.pathname.lastIndexOf('/') + 1)
-  
-          location.href = path + 'success.html';
-      }else{
-          localStorage.removeItem('token');
-          emailError.textContent = 'Usuario o contraseña incorrecta';
-      }
-  })*/
 });

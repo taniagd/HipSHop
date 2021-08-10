@@ -1,29 +1,26 @@
 $(document).ready(function(){
     let queryString = window.location.search;
     let params = new URLSearchParams(queryString);
-    if(params.get("branch")){
-      console.log(typeof params.get("branch"));
+    if(params.get("idproduct")){
+      console.log(typeof params.get("idproduct"));
       let request = $.ajax({
-        url: "http://localhost:8080/product/"+ params.get("idTypeProduct"),
+        url: "http://localhost:8080/product/"+ params.get("idproduct"),
         method: "GET"
       });
 
       request.done(function( data ) {
-        console.log(data);
-        for (let index = 0; index < data.length; index++) {
           $("#container-item").append(
-          '<h1 class="title-item">Playera "Masta Quba"'+
-                  '</h1>'+
-                  '<a href="artista-personl.html?artista='+data[index]["id"]+'" class="autor-link">Masta Quba</a>'+
-                '</div>'+
-                '<div class="img-container">'+
-                  '<img src="'+ data[index]["image"]>''+
-                '</div>'+
-                '<div class="imgs-detail-container">'+
-                  '<img class="img-detail-item" src="'+ data[index]["image"]>''+
-                '</div>'
+            '<div class="container-title-item">'+
+              '<h1 class="title-item">'+data["product"]["productName"]+'</h1>'+
+            '</div>'+
+            '<div class="img-container">'+
+              '<img class="main-img-item" src="'+data["product"]["image"]+'" alt="">'+
+            '</div>'+
+            '<div class="imgs-detail-container">'+
+              '<img class="img-detail-item" src="'+data["product"]["image"]+'" alt="">'+
+            '</div>'
           );
-        }
+        
 
       });
 
