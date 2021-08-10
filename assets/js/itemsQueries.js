@@ -21,7 +21,7 @@ $(document).ready(function(){
           '<div class="col-lg-4 col-md-6">'+
             '<div class="single-product">'+
               '<a href="'+html+'?idproduct='+ data[index]["id"]+'&idTypeProduct='+data[index]["product"]["id"]+'" class="title-article">'+
-                '<img class="img-fluid" src=" '+ data[index]["product"]["image"] +'>'+
+                '<img class="img-fluid" src=" '+ data[index]["product"]["image"] +'">'+
               '</a>'+
               '<div class="product-details">'+
                   '<a href="'+html+'" class="title-article">'+data[index]["product"]["productName"]+'</a>'+
@@ -46,17 +46,16 @@ $(document).ready(function(){
     request.done(function( data ) {
       console.log(data);
       for (let index = 0; index < data.length; index++) {
-        let html = "item.html";
         $("#container-items").append(
           '<div class="col-lg-4 col-md-6">'+
             '<div class="single-product">'+
-              '<a href="'+html+'?idproduct='+ data[index]["id"]+'&idTypeProduct='+data[index]["id"]+'" class="title-article">'+
-                '<img class="img-fluid" src=" '+ data[index]["image"] +'>'+
+              '<a href="'+html+'?idproduct='+ data[index]["id"]+'&idTypeProduct='+data[index]["product"]["id"]+'" class="title-article">'+
+                '<img class="img-fluid" src=" '+ data[index]["product"]["image"] +'">'+
               '</a>'+
               '<div class="product-details">'+
-                  '<a href="'+html+'" class="title-article">'+data[index]["productName"]+'</a>'+
+                  '<a href="'+html+'" class="title-article">'+data[index]["product"]["productName"]+'</a>'+
                 '<div class="price">'+
-                  '<h6 class="price-left" style="color: #ce0000;">$'+data[index]["price"]+'</h6>'+
+                  '<h6 class="price-left" style="color: #ce0000;">$'+data[index]["product"]["price"]+'</h6>'+
                 '</div>'+
               '</div>'+
             '</div>'+
