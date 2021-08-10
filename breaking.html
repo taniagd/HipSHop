@@ -190,11 +190,11 @@
         }
       };
       const isLoggedIn = () => {
-        let loggedin = localStorage.getItem('loggedin');
+        let loggedin = localStorage.getItem('token');
         if(loggedin){
           return true;
         }else{
-          localStorage.removeItem('loggedin');
+          localStorage.removeItem('token');
           return false;
         }
       };
