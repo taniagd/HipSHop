@@ -340,7 +340,7 @@
           method: "POST",
           contentType: 'application/json',
           beforeSend: function (xhr) {
-              xhr.setRequestHeader('Authorization', "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Mjg0ODU0NDAsInN1YiI6InVzZXJuYW1lMSIsInJvbGUiOiJWRU5ET1IiLCJleHAiOjE2MjkzNDk0NDB9.H3CpN7mbxbEEXk4S_wN7JzvxPZxD7H-Y4ouBvzXmZOezuvjG1GpgBlLCstlJ2PmR2L9tsCoS3gkkcPfVubJWPg");
+              xhr.setRequestHeader('Authorization', localStorage.getItem("token"));
           },
           data: JSON.stringify({
             "productName" :$("#productName").val(),
