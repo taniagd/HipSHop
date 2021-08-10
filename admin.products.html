@@ -172,61 +172,34 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Agregar nuevo producto</h5>
+          <h5 class="modal-title">Agregar nuevo workshop</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="text" class="form-control" id="productName" placeholder="Password">
             <label for="floatingPassword">Nombre del producto</label>
           </div>
-          <br>
-          <ul class="list-size">
-            <li>
-              <div class="form-floating">
-                <span class="remove-table">-</span>
-                <input type="text" class="form-control" placeholder="Nombre del producto">
-                <label for="floatingPassword">Talla</label>
-                
-              
-              </div>
-              <table class="table products">
-                <thead>
-                  <tr>
-                    <th>Color:</th>
-                    <th>Piezas disponibles:</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td> <input type="color" value="#000000"></td>
-                    <td>  <input type="text" value="0"></td>
-                    <td>
-                      <span class="remove-row">-</span> </td>
-                  </tr>
-
-                </tbody>
-              </table>
-              <span class="add-row">+</span>
-            </li>
-          </ul>
-          <span class="add-table">+</span>
-
-          <div>
-            <h5>Imágenes:</h5>
-            <input type="file" id="imagesUpload" multiple>
-          </div>
-          
-          <br>
-
           <div class="form-floating">
-            <input type="text" class="form-control" placeholder="Nombre del producto" >
-            <label for="floatingPassword">Costo</label>
+            <input type="text" class="form-control" id="imagen" placeholder="Password">
+            <label for="floatingPassword">Imagen</label>
           </div>
-          
+          <div class="form-floating">
+            <input type="text" class="form-control" id="precio" placeholder="Password">
+            <label for="floatingPassword">Precio</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="fecha" placeholder="Password">
+            <label for="floatingPassword">Fecha</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="location" placeholder="Password">
+            <label for="floatingPassword">Location</label>
+          </div>
+
           <div class="modal-footer d-block">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
-            <button type="button" style="float: right;" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-danger" id="autofill" >Autollenar</button>
+            <button type="button" style="float: right;" class="btn btn-success" id="saveWorkshop">Guardar</button>
           </div>
         </div>
       </div>
@@ -351,6 +324,7 @@
   <script src="./assets/js/admin.products.js"></script>
   <script src="./assets/js/bootstrap.bundle.js"></script>
   <script src="./assets/js/jquery.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
       const logIn = (email, pass) => {
         if(email === "email@email.com" && pass === "pass"){
@@ -379,6 +353,43 @@
       }
       $("#login").click(function(){
         logIn("email@email.com", "pass")
+      });
+
+      $("#autofill").click(function(){
+        $("#productName").val("Workshop de prueba");
+        $("#imagen").val("https://tremending.com/wp-content/uploads/2018/03/rapworkshop2-629x400.jpg");
+        $("#precio").val("1500");
+        $("#fecha").val("23-10-2021");
+        $("#location").val("Este workshop sera llevado a cabo en Eje central #50");
+      });
+      
+      $("#saveWorkshop").click(function(){
+        let request = $.ajax({
+          url: "http://localhost:8080/workshop",
+          method: "POST",
+          contentType: 'application/json',
+          beforeSend: function (xhr) {
+              xhr.setRequestHeader('Authorization', "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2Mjg0ODU0NDAsInN1YiI6InVzZXJuYW1lMSIsInJvbGUiOiJWRU5ET1IiLCJleHAiOjE2MjkzNDk0NDB9.H3CpN7mbxbEEXk4S_wN7JzvxPZxD7H-Y4ouBvzXmZOezuvjG1GpgBlLCstlJ2PmR2L9tsCoS3gkkcPfVubJWPg");
+          },
+          data: JSON.stringify({
+            "productName" :$("#productName").val(),
+            "image":$("#imagen").val(),
+            "price": $("#precio").val(),
+            "date":  $("#fecha").val(),
+            "location": $("#location").val()
+          })
+        });
+        
+        request.done(function( data ) {
+          swal("Genial", "Ya guardaste un workshop", "success");
+        });
+        request.fail(function( jqXHR, textStatus ) {
+          if(localStorage.getItem("token")){
+            swal("No se ha guardado", "No se ha podido guardar, intenta de nuevo despues", "error");
+          }else{
+            swal("No se ha guardado", "Inicia sesion primero", "error");
+          }
+        });
       });
     </script>
 </body>
